@@ -36,7 +36,7 @@ class ShellExec constructor(vararg val executable: String, val environment: Map<
                 STDERR = ShellReader(process.getErrorStream(), "reader:stderr")
                 STDERR.start()
             }
-            writer = OutputStreamWriter(process.getOutputStream());
+            writer = OutputStreamWriter(process.getOutputStream())
             for (command: String in commands) {
                 writer.write(command)
                 writer.write("\n")
@@ -45,7 +45,7 @@ class ShellExec constructor(vararg val executable: String, val environment: Map<
             writer.write("exit")
             writer.write("\n")
             writer.flush()
-            code = process.waitFor();
+            code = process.waitFor()
             writer.close()
             STDERR?.join()
             STDOUT?.join()
