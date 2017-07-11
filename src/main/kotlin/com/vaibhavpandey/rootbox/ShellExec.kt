@@ -29,11 +29,11 @@ class ShellExec constructor(vararg val executable: String, val environment: Map<
             }
             process = builder.start()
             if (stdout) {
-                STDOUT = ShellReader(process.getInputStream(), "reader:stdout");
+                STDOUT = ShellReader(process.getInputStream(), "reader:stdout")
                 STDOUT.start()
             }
             if (stderr) {
-                STDERR = ShellReader(process.getErrorStream(), "reader:stderr");
+                STDERR = ShellReader(process.getErrorStream(), "reader:stderr")
                 STDERR.start()
             }
             writer = OutputStreamWriter(process.getOutputStream());
